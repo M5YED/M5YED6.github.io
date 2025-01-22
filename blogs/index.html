@@ -1,1 +1,813 @@
-To be continued.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="sitemap" type="application/xml" href="https://media.assetflowautomations.com/blogs/sitemap.xml" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#054708"> 
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/ms-icon-150x150.png">
+    <meta name="msapplication-TileImage" content="/ms-icon-310x310.png">
+    <meta name="msapplication-TileImage" content="/ms-icon-70x70.png">
+    <meta name="theme-color" content="#054708">
+    <meta property="og:image" content="/AssetFlow_Open_Graph_Image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content="AssetFlow Automations" />
+    <meta property="og:description" content="Get custom automation systems to save your business time. Our systems are all built to perfection." />
+    <meta property="og:url" content="https://media.assetflowautomations.com/blogs/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AssetFlow Automations">
+    <meta name="twitter:description" content="Save your business from wasted time. Order an automation system today.">
+    <meta name="twitter:image" content="/x-icon.png">
+    <style>
+    /* Reset and General Styling */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    @font-face {
+        font-family: 'HORIZON'; /* Normal Horizon font */
+        src: url('horizon.otf') format('opentype'); /* Use 'opentype' for .otf files */
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'HORIZON-OUTLINED'; /* Outlined Horizon font */
+        src: url('horizon_outlined.otf') format('opentype'); /* Use 'opentype' for .otf files */
+        font-weight: normal;
+        font-style: normal;
+    }
+        
+    @font-face {
+        font-family: 'GP-SB'; /* Georgia Pro Semi-Bold font */
+        src: url('GeorgiaPro-SemiBold.ttf') format('truetype'); /* Use 'truetype' for .ttf files */
+        font-weight: normal;
+        font-style: normal;
+    }
+        
+    @font-face {
+        font-family: 'TNR'; /* Times New Roman font */
+        src: url('times-new-roman-italic.ttf') format('truetype'); /* Use 'truetype' for .ttf files */
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* Keyframes for clockwise spin */
+    @keyframes spinClockwise {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    /* Keyframes for counterclockwise spin */
+    @keyframes spinCounterclockwise {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(-360deg);
+        }
+    }
+
+    body {
+        font-family: 'TNR', sans-serif;
+        padding-top: 90px; /* Under header height */
+        text-align: center;
+    }
+
+    /* Header Styling */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #054708;
+        padding: 15px 40px;
+        z-index: 1000;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 30vw);
+        grid-template-rows: repeat(2, 30vh);
+        gap: 10px; /* Adjust gap between boxes */
+        justify-content: center;
+    }
+
+    .box {
+        background-color: #A52A2A;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .box:hover {
+        background-color: #8B0000;
+    }
+
+    /* Overlay Styles */
+    .overlay {
+        position: fixed;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto; /* Enable vertical scrolling if content is too long */
+        background: #080027;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: none;
+        z-index: 10;
+    }
+
+    .overlay.visible {
+        display: block;
+    }
+
+    .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 5;
+        display: none;
+    }
+
+    .backdrop.visible {
+        display: block;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        color: #FFFFFF;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+        
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+        margin: 0 24px;
+    }
+        
+    h1 {
+        color: #FFFFFF;
+        font-family: 'HORIZON', sans-serif; 
+        font-size: 36px;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    h2 {
+        color: #FFFFFF;
+        font-family: 'HORIZON-OUTLINED', sans-serif; 
+        font-size: 36px;
+        margin: 0;
+        flex-grow: 1;
+    }
+        
+    h3 {
+        color: #FFFFFF;
+        font-family: 'GP-SB', sans-serif; 
+        font-size: 25px;
+        margin: 0;
+        flex-grow: 1;
+    }
+        
+    h4 {
+        color: #FFFFFF;
+        font-family: 'TNR', serif; 
+        font-size: 15px;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    /* Navigation Button Styling */
+    nav {
+        display: flex;
+        gap: 100px;
+    }
+
+    nav button {
+        background-color: transparent;
+        border: 2px solid #EFFE8A;
+        color: #FFFFFF;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'GP-SB', sans-serif;
+        cursor: pointer;
+    }
+
+    nav button:hover {
+        background-color: #EFFE8A;
+        color: #080027;
+    }
+
+    /* Button styling */
+    .glow-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff7f00;
+        color: #FFFFFF;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth effect */
+    }
+
+    /* Glow effect on hover */
+    .glow-button:hover {
+        box-shadow: 0 0 15px #A52A2A, 0 0 30px #A52A2A; /* Glowing effect */
+        transform: scale(1.05); /* Slightly enlarges the button */
+    }
+        
+    /* Button styling */
+    .glow-button2 {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff7f00;
+        color: #FFFFFF;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth effect */
+    }
+
+    /* Glow effect on hover */
+    .glow-button2:hover {
+        box-shadow: 0 0 15px #054708, 0 0 30px #054708; /* Glowing effect */
+        transform: scale(1.05); /* Slightly enlarges the button */
+    }
+
+    /* Main Background Styling */
+    .background-wrapper {
+        background-image: url('backgroundimage1.jpg'); 
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        padding: 0 20px; /* Adds padding to avoid overlap */
+        max-width: 100vw;
+        box-sizing: border-box; /* Ensures padding is within viewport width */
+        min-height: 100vh;
+    }
+
+    section {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 1);
+        max-width: 90vw;
+    }
+
+    /* Text container and Image styling */
+    .text-container {
+        text-align: center;
+        color: #000000;
+        padding: 10px;
+    }
+
+    .image-container img {
+        width: 40vw;
+        height: auto;
+        max-width: 100%;
+    }
+
+    /* Container styling for positioning */
+    .gold-menu-container {
+        position: relative; /* Relative to allow overlay positioning */
+    }
+
+    /* Gold button styling */
+    .gold-menu-button {
+        background-color: #FFD700; /* Gold background */
+        color: #000; /* Black text for contrast */
+        font-size: 24px; /* Large button text */
+        border: 2px solid #B8860B; /* Slightly darker border */
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        animation: infinite-glow 1.5s infinite; /* Faster and more dynamic glow */
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Stronger initial glow */
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .gold-menu-button:hover {
+        background-color: #FFDF00; /* Lighter gold on hover */
+        box-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 0, 0, 0.8); /* Strong multi-layered glow */
+        transform: scale(1.1); /* Slightly larger scale on hover */
+        animation: none; /* Stop infinite glow on hover */
+    }
+
+    /* Infinite glowing animation with stronger intensity */
+    @keyframes infinite-glow {
+        0%, 100% {
+            background-color: #FFD700; /* Initial gold */
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Moderate red glow */
+        }
+        50% {
+            background-color: #FFC300; /* Slightly darker gold */
+            box-shadow: 0 0 40px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 0.8); /* Intense multi-layered glow */
+        }
+    }
+
+    /* Hidden overlay by default */
+    .menu-overlay {
+        position: absolute;
+        top: 50px; /* Positioned below the button */
+        right: -30px;
+        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
+        color: #FFD700; /* Gold text color */
+        width: 200px;
+        display: none; /* Hidden initially */
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        opacity: 0; /* Transparent initially */
+        transform: translateY(-20px); /* Slide up initially */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and slide */
+        overflow-y: auto; /* Adds vertical scroll when content overflows */
+        max-height: 300px; /* Limit the height of the overlay */
+    }
+
+    /* Links inside the overlay */
+    .menu-overlay a {
+        text-decoration: none;
+        color: #FFD700; /* Gold links */
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        transition: color 0.2s ease;
+        cursor: pointer;
+    }
+
+    .menu-overlay a:hover {
+        color: #FFDF00;
+    }
+
+    /* Active menu overlay (visible with animation) */
+    .menu-overlay.active {
+        display: flex; /* Display as a column */
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Slide into place */
+    }
+
+    .vertical-line {
+        height: 500px;
+        align-self: stretch;
+    }
+
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: repeat(2, 45vw); /* 2 columns */
+        grid-template-rows: auto; /* Adjust row height automatically */
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: repeat(1, 80vw); /* 1 column */
+        grid-template-rows: auto; /* Adjust row height automatically */
+    }
+
+    .box {
+      padding: 2px !important; /* Override the inline padding for smaller screens */
+    }
+}
+        
+/* Mobile Styling */
+@media (max-width: 768px) {
+    header {
+        padding: 2px 15px;
+        height: auto;
+        z-index: 10;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .logo {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 5px;
+    }
+
+    .header-title {
+        font-size: 16px;
+        margin: 0;
+    }
+
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+        margin: 10px 0; /* Adds space between header and content */
+    }
+
+    nav {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    body {
+        padding-top: 185px; /* Matches header height + spacing */
+    }
+
+    .menu-overlay {
+        top: 60px;
+        left: -75px;
+    }
+}
+
+        
+@media (max-width: 700px) {
+    section {
+        padding: 15px;
+        margin: 10px auto;
+        max-width: 100vw;
+    }
+
+    .text-container {
+        padding: 5px;
+    }
+
+    .image-container img {
+        width: 80vw;
+    }
+
+    header {
+        padding-bottom: 10px; /* Adds space below header */
+    }
+}
+
+</style>
+<!-- TrustBox script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<!-- End TrustBox script -->
+</head>
+    
+<!-- Main website content -->
+<div id="main-content">
+    <header>
+        <div class="header-content">
+            <!-- Company Logo -->
+            <a href="javascript:location.reload();">
+                <img src="AFALogoYellow.png" alt="AssetFlow Automations Logo" class="logo">
+            </a>
+
+            <!-- Company Name -->
+            <h1>AssetFlow Automations</h1>
+
+<!-- Gold Menu -->
+<nav class="gold-menu-container">
+    <button class="gold-menu-button" onclick="toggleMenu()">☰</button>
+    <div id="menu-overlay" class="menu-overlay">
+        <h3 style="font-size: 20px;">Main</h3>
+        <a href="https://www.assetflowautomations.com/">Home</a>
+        <a href="https://service.assetflowautomations.com/">Service</a>
+        <a href="https://pricing.assetflowautomations.com/">Pricing</a>
+        <br>
+        <h3 style="font-size: 20px;">Plans</h3>
+        <a href="https://service.assetflowautomations.com/purchaser">Hand-Off</a>
+        <a href="https://service.assetflowautomations.com/purchaser/management">Management</a>        
+        <br>
+        <h3 style="font-size: 20px;">Documentation</h3>
+        <a href="https://documentation.assetflowautomations.com/">Documents</a>
+        <a href="https://documentation.assetflowautomations.com/2.0">Documents 2.0</a>
+        <br>
+        <h3 style="font-size: 20px;">Other</h3>
+        <a href="https://media.assetflowautomations.com/blogs/">Blogs</a>
+        <a href="https://www.assetflowautomations.com/use-cases/">Use Cases</a>
+        <a href="https://ratings.assetflowautomations.com/">Reviews</a>        
+        <a href="https://uk.trustpilot.com/review/assetflowautomations.com?utm_medium=trustbox&utm_source=TrustBoxReviewCollector">Rate Us</a>        
+        <br>
+        <h3 style="font-size: 20px;">Contact</h3>
+        <a href="mailto:support@assetflowautomations.com?subject=Support%20Request&body=Hello%2C%0D%0A%0D%0AI%20need%20assistance%20with...">Support(email)</a>
+        <a href="mailto:info@assetflowautomations.com?subject=Information%20Request&body=Dear%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20know%20more%20about...">Info(email)</a>
+<a href="https://wa.me/447887333872?text=Hello%2C%20I'm%20interested%20in%20your%20services" target="_blank">WhatsApp</a>
+        <br>       
+    </div>
+</nav>
+        </div>
+    </header>
+</div>
+
+<!--CSS-->
+<style>
+    @media (max-width: 768px) {
+        .menu-overlay {
+            top: 60px; 
+            left: -75px;
+        }
+    }
+</style>
+<!-- JavaScript -->
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu-overlay');
+        if (menu.classList.contains('active')) {
+            menu.style.opacity = '0'; // Fade out
+            setTimeout(() => {
+                menu.style.display = 'none'; // Hide after fade-out
+                menu.classList.remove('active'); // Remove active class
+            }, 300); // Match transition duration
+        } else {
+            menu.style.display = 'flex'; // Show before fading in
+            setTimeout(() => {
+                menu.classList.add('active'); // Add active class for fade-in
+                menu.style.opacity = '1'; // Trigger fade-in
+            }, 10); // Delay for smooth transition
+        }
+    }
+</script>
+    
+<script>
+    // Smooth scrolling script
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Animation and transition script
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+            const intro = document.getElementById("intro");
+            if (intro) {
+                intro.style.opacity = 0; // Smooth fade-out
+                setTimeout(() => {
+                    intro.style.display = "none"; // Remove after fade-out
+                    const mainContent = document.getElementById("main-content");
+                    if (mainContent) {
+                        mainContent.style.display = "block"; // Show main content
+                    }
+                }, 500); // Wait for fade-out to complete (0.5s)
+            }
+        }, 2000); // 2-second intro display
+    });
+</script>
+    
+<body>
+<br>
+<h2 style="color: #080027;">Real-Time Information</h2>
+<h1 style="color: #080027;">To Keep You Up-To-Date</h1>
+<div class="container">
+    <div class="box" onclick="openOverlay(1)"><br><img src="Blog_Image_1.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">The Government now use AI, when will you?<br>(21/01/25)</h3></div>
+    <div class="box">Coming Soon!</div>
+    <div class="box">Coming Soon!</div>
+    <div class="box">Coming Soon!</div>
+    <div class="box">Coming Soon!</div>
+    <div class="box">Coming Soon!</div>
+</div>
+<style>
+.text {
+    color: #FFFFFF;
+    font-family: 'TNR', serif; 
+    font-weight: normal;
+    font-size: 15px;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sub-title {
+    color: #A52A2A;
+    font-family: 'GP-SB', sans-serif; 
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.title {
+    color: #054708;
+    font-family: 'GP-SB', sans-serif; 
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.external-link{
+    color: #EFFE8A;
+}
+
+.our-link{
+    color: #ff7f00;
+}
+</style>
+<div class="overlay" id="overlay-1">
+<button class="close-btn" onclick="closeOverlay()">×</button><span class="title">Embracing AI in Government: The Introduction of 'Humphrey'</span><br>  <span class="text">In a significant move towards modernizing public services, the UK government has unveiled a suite of artificial intelligence (AI) tools collectively named 'Humphrey', inspired by the astute civil servant Sir Humphrey Appleby from the classic BBC sitcom Yes, Minister. This initiative aims to enhance efficiency within the civil service, potentially saving taxpayers up to £45 billion.<br>(<a href="https://www.the-independent.com/news/uk/politics/ai-humphrey-yes-minister-whitehall-politics-b2683343.html" class="external-link">NDTV</a>)<br><br><span class="sub-title">The 'Humphrey' AI Suite: A Step Towards Modernization</span><br>The 'Humphrey' package comprises several AI tools designed to streamline various governmental processes:<br><br>- <b>Consult</b>: Analyzes thousands of responses from public consultations, providing policymakers with comprehensive insights in hours—a task that traditionally takes consultants months and costs approximately £100,000 per consultation.<br>(<a href="https://www.ndtv.com/ai/uk-aims-to-quicken-civil-service-with-ai-humphrey-7524255" class="external-link">THE INDEPENDENT</a>)<br>- <b>Parlex</b>: Examines decades of parliamentary debates to assist in policy development and decision-making.<br><br>- <b>Redbox</b>: Generates briefings by summarizing government documents, aiding civil servants in their daily tasks.<br><br>- <b>Lex</b>: Facilitates efficient legal research by summarizing relevant laws and regulations.<br><br>- <b>Minute</b>: Offers AI-powered transcription services for meetings, producing customizable summaries tailored to public servants' needs.<br>(<a href="https://www.ndtv.com/ai/uk-aims-to-quicken-civil-service-with-ai-humphrey-7524255" style="color: #EFFE8A;">NDTV</a>)<br><br><span class="sub-title">Balancing Tradition with Innovation</span><br>While the adoption of AI in government operations is a forward-thinking endeavor, the choice of the name 'Humphrey' has sparked discussions. Tim Flagg, Chief Operating Officer of UKAI, expressed concerns that the name, associated with a "Machiavellian" character, might not convey the empowering and helpful nature intended for these tools.<br>(<a href="https://www.bbc.co.uk/news/articles/cy48vl3p0nyo" class="external-link">BBC</a>)<br><br><span class="sub-title">Implications for Businesses</span><br>The government's integration of AI through the 'Humphrey' suite underscores a broader trend of adopting technology to improve efficiency and reduce costs. This move serves as a compelling example for businesses contemplating the implementation of AI solutions. <br><br>By embracing AI, companies can:<br>- <b>Enhance Operational Efficiency</b>: Automate routine tasks, allowing employees to focus on strategic initiatives.<br>- <b>Improve Decision-Making</b>: Leverage data analytics to gain actionable insights.<br>- <b>Reduce Costs</b>: Streamline processes to achieve significant cost savings.<br><br>AssetFlow Automations: Your Partner in AI Integration<br>At AssetFlow Automations, we recognize the transformative potential of AI for businesses. Our mission is to make AI accessible and affordable, offering tailored automation solutions that align with your specific needs.<br><br><span class="sub-title">Why Choose Us?</span><br>- <b>Cost-Effective Solutions</b>: While competitors may charge substantial monthly fees, we provide advanced automation systems with a one-time investment ranging from £50 to £1000, depending on complexity.<br>- <b>Transparent Management Fees</b>: Maintain your system with a modest monthly fee of £30, or opt for an annual payment of £360, ensuring no hidden costs.<br>- <b>Customized Implementations</b>: Our solutions are designed to integrate seamlessly with your existing operations, minimizing disruption and maximizing benefits.<br><br><span class="sub-title">Seize the Opportunity</span><br>The introduction of the 'Humphrey' AI suite by the UK government highlights the critical role of AI in modernizing operations and achieving substantial efficiencies. Businesses that delay adopting AI risk falling behind in an increasingly competitive landscape.<br><br>Take action now to future-proof your business. Partner with AssetFlow Automations to harness the power of AI and drive your business forward.<br><br>Contact us today to explore how our bespoke AI solutions can transform your operations.<br><br>Visit AssetFlow Automations at <a href="https://www.assetflowautomations.com/" class="our-link">www.assetflowautomations.com</a> to learn more.</span>
+</div>
+<br>
+<script>
+    function openOverlay(id) {
+        // Hide all overlays before showing the selected one
+        document.querySelectorAll(".overlay").forEach(overlay => {
+            overlay.classList.remove("visible");
+        });
+        document.getElementById(`overlay-${id}`).classList.add("visible");
+        document.querySelector(".backdrop").classList.add("visible");
+    }
+
+    function closeOverlay() {
+        document.querySelectorAll(".overlay").forEach(overlay => {
+            overlay.classList.remove("visible");
+        });
+        document.querySelector(".backdrop").classList.remove("visible");
+    }
+  </script>
+</body>
+
+<!-- Footer with Subscribe Form -->
+<footer id="footer" class="footer" style="background-color: #EFFE8A; padding: 20px; text-align: center; width: 100%; max-width: 100vw;">
+<section id="footer" class="footer">
+    <!-- Footer Heading -->
+    <h1 style="color: #000000; margin-bottom: 10px;">AssetFlow Automations</h1>
+
+    <!-- Subscribe Form -->
+    <form id="subscribeForm" action="#" method="POST" onsubmit="submitsubscribeForm(event)">
+        <!-- Subscribe Heading -->
+        <h3 style="color: #000000;">Subscribe to our newsletter</h3>
+
+        <!-- Email Prompt -->
+        <h4 style="color: #000000; display: block; margin-top: 10px;">Enter your email</h4>
+
+        <!-- Email Input Field -->
+        <div style="margin: 10px auto; width: 60%; position: relative;">
+            <input 
+                type="email" 
+                name="email" 
+                placeholder="example@email.com" 
+                style="display: block; width: 100%; padding: 8px; border: none; border-bottom: 1px solid #000000; color: red; text-align: center;"
+                required>
+        </div>
+
+        <!-- Subscribe Button -->
+        <button id="SubscribeButton" type="submit" style="background-color: #000000; color: #EFFE8A; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer;">
+            Subscribe
+        </button>
+    </form>
+    <br>
+    <br>
+    <h3 style="color:black;"><u>Contact Us</u></h3>
+    <br>
+    <h4 style="color:black;">Whatsapp Business: <a href="https://wa.me/447887333872?text=Hello%2C%20I'm%20interested%20in%20your%20services" target="_blank" style="color: #054708;">07887 333872</a></h4>
+    <br>
+    <h4><a href="mailto:support@assetflowautomations.com?subject=Support%20Request&body=Hello%2C%0D%0A%0D%0AI%20need%20assistance%20with..." style="color: #A52A2A;">support@assetflowautomations.com</a></h4>
+    <br>
+    <!-- TrustBox widget - Review Collector -->
+    <center><div class="trustpilot-widget" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6754cc0488bd0576106f5467" data-style-height="52px" data-style-width="100%">
+      <a href="https://uk.trustpilot.com/review/assetflowautomations.com" target="_blank" rel="noopener">Trustpilot</a>
+    </div></center>
+    <!-- End TrustBox widget -->
+
+    <!-- Voiceflow Web Chat Widget Script -->
+    <script type="text/javascript">
+      (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          // Initialize the Voiceflow Web Chat widget
+          window.voiceflow.chat.load({
+            verify: { projectID: '672f9a87dd74c835a2761c60' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production'
+          }).then(() => {
+            // Add event listener to the "Subscribe" button
+            document.getElementById('SubscribeButton').addEventListener('click', (event) => {
+              event.preventDefault(); // Prevent form submission until alert is shown
+
+              const email = document.querySelector('input[name="email"]').value;
+
+              if (email) {
+                // Submit the email to Airtable
+                submitsubscribeForm(event)
+
+                // Show the original alert after form submission
+                alert('Thank you for subscribing!');
+
+                // Open the chat widget after the alert is closed
+                window.voiceflow.chat.open();
+
+                // Send the 'NewSubscriber' event to Voiceflow
+                window.voiceflow.chat.interact({
+                  type: 'event',
+                  payload: {
+                    event: {
+                      name: 'NewSubscriber' // The event name defined in your Event CMS
+                    }
+                  }
+                });
+              } else {
+                // The browser will show the default validation alert if the field is empty
+                document.querySelector('input[name="email"]').reportValidity();
+              }
+            });
+          }).catch(error => {
+            console.error('Error loading the Voiceflow chat widget:', error);
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+
+    <!-- JavaScript for Airtable Integration -->
+    <script>
+      function submitsubscribeForm(event) {
+        const email = document.querySelector('input[name="email"]').value;
+
+        // Airtable API configuration
+        const baseId = 'appHdf8GqdnnZ8eQE';
+        const tableName = 'Table%201';
+        const airtableUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
+        const apiKey = 'patb0pXMNIXvXABCA.8225b205c549ce52bb118a86e4df78675668274cff5e6f71d8db0280d854dcff'; 
+
+        // Create record data for Airtable
+        const data = {
+          fields: {
+            Email: email 
+          }
+        };
+
+        // Make the POST request to Airtable API
+        fetch(airtableUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Alert is shown in the Voiceflow chat event listener
+        })
+        .catch(error => console.error('Error:', error));
+      }
+    </script>
+</section>
+<section id="under-footer" class="footer">
+    <div style="display: flex; justify-content: space-between;;">
+    <a href="https://documentation.assetflowautomations.com/#About" style="display:flex; justify-content: left; color: white; background-color: #A52A2A; border: 2px solid #A52A2A; border-radius: 5px; padding: 10px;">About</a>
+    <a href="https://documentation.assetflowautomations.com/2.0#Privacy-Policy" style="display:flex; justify-content: center; color: white; background-color: #A52A2A; border: 2px solid #A52A2A; border-radius: 5px; padding: 10px;">Privacy Policy</a>
+    <a href="https://documentation.assetflowautomations.com/2.0" style="display:flex; justify-content: right; color: white; background-color: #A52A2A; border: 2px solid #A52A2A; border-radius: 5px; padding: 10px;">Legal</a>
+    </div>
+    <br>
+        <p style="color: #000000;">&copy; 2025 AssetFlow Automations. All rights reserved.</p>
+    <br>
+</section>
+</footer>
+</html>
