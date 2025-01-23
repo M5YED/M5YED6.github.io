@@ -509,6 +509,7 @@
             <!-- Company Name -->
             <h1>AssetFlow Automations</h1>
 
+<div style="display: flex; text-align: left;">
 <!-- Gold Menu -->
 <nav class="gold-menu-container">
     <button class="gold-menu-button" onclick="toggleMenu()">☰</button>
@@ -539,6 +540,7 @@
         <br>       
     </div>
 </nav>
+</div>
         </div>
     </header>
 </div>
@@ -554,50 +556,224 @@
 </style>
 <!-- JavaScript -->
 <script>
-    function toggleMenu() {
-        const menu = document.getElementById('menu-overlay');
-        if (menu.classList.contains('active')) {
-            menu.style.opacity = '0'; // Fade out
-            setTimeout(() => {
-                menu.style.display = 'none'; // Hide after fade-out
-                menu.classList.remove('active'); // Remove active class
-            }, 300); // Match transition duration
-        } else {
-            menu.style.display = 'flex'; // Show before fading in
-            setTimeout(() => {
-                menu.classList.add('active'); // Add active class for fade-in
-                menu.style.opacity = '1'; // Trigger fade-in
-            }, 10); // Delay for smooth transition
-        }
-    }
-</script>
-    
-<script>
-    // Smooth scrolling script
-    function scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    // Animation and transition script
-    document.addEventListener("DOMContentLoaded", () => {
+function toggleMenu() {
+    const menu = document.getElementById('menu-overlay');
+    if (menu.classList.contains('active')) {
+        menu.style.opacity = '0'; // Fade out
         setTimeout(() => {
-            const intro = document.getElementById("intro");
-            if (intro) {
-                intro.style.opacity = 0; // Smooth fade-out
-                setTimeout(() => {
-                    intro.style.display = "none"; // Remove after fade-out
-                    const mainContent = document.getElementById("main-content");
-                    if (mainContent) {
-                        mainContent.style.display = "block"; // Show main content
-                    }
-                }, 500); // Wait for fade-out to complete (0.5s)
-            }
-        }, 2000); // 2-second intro display
-    });
+            menu.style.display = 'none'; // Hide after fade-out
+            menu.classList.remove('active'); // Remove active class
+        }, 300); // Match transition duration
+    } else {
+        menu.style.display = 'flex'; // Show before fading in
+        setTimeout(() => {
+            menu.classList.add('active'); // Add active class for fade-in
+            menu.style.opacity = '1'; // Trigger fade-in
+        }, 10); // Delay for smooth transition
+    }
+}
 </script>
+
+
+
+
+<script>
+// Smooth scrolling script
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Animation and transition script
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        const intro = document.getElementById("intro");
+        if (intro) {
+            intro.style.opacity = 0; // Smooth fade-out
+            setTimeout(() => {
+                intro.style.display = "none"; // Remove after fade-out
+                const mainContent = document.getElementById("main-content");
+                if (mainContent) {
+                    mainContent.style.display = "block"; // Show main content
+                }
+            }, 500); // Wait for fade-out to complete (0.5s)
+        }
+    }, 2000); // 2-second intro display
+});
+</script>
+
+<!-- This sends the UserID to the Database. DO NOT EDIT!-->
+<script>
+// List of fruit names
+const fruits = [
+  "Apple", "Apricot", "Avocado", "Banana", "Blackberry", "Blueberry", "Boysenberry", "Cantaloupe", "Carambola", "Cherry", "Clementine", "Coconut", "Cranberry", "Currant", "Date", "Dragonfruit", "Durian", "Elderberry", "Fig", "Gooseberry", "Grape", "Grapefruit", "Guava", "Honeydew", "IndianFig", "Jackfruit", "Jujube", "Kiwi", "Kumquat", "Lemon", "Lime", "Longan", "Lychee", "Mango", "Mangosteen", "Mulberry", "Nectarine", "Olive", "Orange", "Papaya", "PassionFruit", "Peach", "Pear", "Persimmon", "Pineapple", "Plantain", "Plum", "Pomegranate", "Pomelo", "Quince", "Raspberry", "Rambutan", "Redcurrant", "Salak", "Sapodilla", "Soursop", "StarApple", "Starfruit", "Strawberry", "Tamarind", "Tangerine", "UgliFruit", "Watermelon", "WhiteCurrant", "Wolfberry", "Yumberry", "Zucchini", "Acai", "Aronia", "Bacaba", "Bignay", "BitterMelon", "Breadfruit", "Cempedak", "Cupuacu", "Feijoa", "HalaFruit", "Illama", "Jaboticaba", "Langsat", "MameySapote", "Mamoncillo", "Marang", "MiracleFruit", "Nance", "Pequi", "Pitanga", "Pitaya", "Santol", "Sapote", "SurinamCherry", "Tepache", "Voavanga", "Yangmei", "Abiu", "Acerola", "AfricanBreadfruit", "AfricanMango", "Akee", "Ambarella", "Atemoya", "BalsamApple", "BarbadosCherry", "Bayberry", "BetelNut", "Bilberry", "BlackSapote", "Breadnut", "BuddhasHand", "Caimito", "Calamansi", "CamuCamu", "Canistel", "CapeGooseberry", "CashewApple", "Chayote", "Cherimoya", "Chokeberry", "Chontaduro", "Citron", "ClusterFig", "Cocona", "Cowa", "CustardApple", "Damson", "DesertDate", "Duku", "ElephantApple", "FingerLime", "GacFruit", "GaliaMelon", "GoldenApple", "Goumi", "GovernorPlum", "Grumichama", "HogPlum", "IceCreamBean", "IndianGooseberry", "IndianJujube", "IndianPrune", "IndianWalnut", "JamaicanPlum", "Jocote", "Kabosu", "KaffirLime", "Karkalla", "KeiApple", "Korlan", "Kutjera", "Lakoocha", "Lapsi", "Limeberry", "MacadamiaNut", "Madrono", "MalayApple", "MammeeApple", "Mangaba", "ManilaTamarind", "Marula", "Medlar", "MonkeyOrange", "MonsteraDeliciosa", "Mundu", "NatalPlum", "Noni", "OkariNut", "Pandanus", "PeachPalm", "PigeonPea", "Pitomba", "PondApple", "Pulasan", "Quandong", "RataFruit", "Rollinia", "Roselle", "Safou", "Santol", "SeaGrape", "Serviceberry", "SnowBerry", "Soncoya", "SpanishLime", "StrawberryGuava", "SugarApple", "SweetLemon", "TahitianChestnut", "TalipotPalm", "Tamarillo", "TaroFruit", "VelvetApple", "Wampee", "WaxJambu", "WhiteSapote", "WildMangosteen", "YellowDragonfruit", "YunnanHackberry", "ZabergauReinette", "ZigZagVine"
+];
+
+const AIRTABLE_API_KEY = "pat8lyKHm2FpbPRje.eedcaae3c12ce2fba31041e0b9721d273b6db561889975a835e9c0f6684b87cf";
+const AIRTABLE_BASE_ID = "appKHweelVI0KcjjE";
+const AIRTABLE_TABLE_NAME = "Blogs%20Page";
+
+// Store the recordId in a variable to use it later for deletion
+let recordId = null;
+
+// Function to generate a random fruit-based user ID
+function generateUserId() {
+  const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+  const uniqueNumber = Date.now().toString().slice(-6); // Adds a unique number
+  return `${randomFruit}-${uniqueNumber}`;
+}
+
+// Function to send data to Airtable and return recordId
+async function sendToAirtable(userId) {
+  const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
+  
+  const data = {
+    fields: {
+      User: userId,
+    }
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${AIRTABLE_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      recordId = result.id; // Store the recordId globally
+      console.log("User ID sent to Airtable:", userId);
+      console.log("Saved record ID:", recordId);
+
+      // Store recordId in localStorage
+      localStorage.setItem("recordId", recordId);
+      return recordId; // Return the recordId if needed
+    } else {
+      console.error("Error sending data to Airtable:", response.status, await response.text());
+      return null;
+    }
+  } catch (error) {
+    console.error("Failed to send user ID to Airtable:", error);
+    return null;
+  }
+}
+
+// Main logic to execute on page load
+window.onload = async () => {
+  const userId = generateUserId();
+  console.log("Generated User ID:", userId);
+
+  try {
+    const recordId = await sendToAirtable(userId);
+    if (recordId) {
+      console.log("Record successfully created with ID:", recordId);
+    } else {
+      console.error("Failed to create record");
+    }
+  } catch (error) {
+    console.error("Failed to send user ID to Airtable:", error);
+  }
+};
+</script>
+<!-- This sends the UserID to the Database. DO NOT EDIT!-->
+
+
+<script>
+// Function to send email logic
+async function submitemail(email) {
+    const EMAIL_SUBMISSION_API_KEY = "patb0pXMNIXvXABCA.8225b205c549ce52bb118a86e4df78675668274cff5e6f71d8db0280d854dcff";
+    const EMAIL_SUBMISSION_BASE_ID = "appHdf8GqdnnZ8eQE";
+    const EMAIL_SUBMISSION_TABLE_NAME = "Blogs";
+
+    const url = `https://api.airtable.com/v0/${EMAIL_SUBMISSION_BASE_ID}/${EMAIL_SUBMISSION_TABLE_NAME}`;
+    const data = {
+      fields: {
+        Email: email,
+      },
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${EMAIL_SUBMISSION_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Email Submitted Successfully!");
+        return true;
+      } else {
+        console.error("Error submitting email:", response.status, await response.text());
+        return false;
+      }
+    } catch (error) {
+      console.error("Failed to submit email:", error);
+      return false;
+    }
+  }
+
+// Main logic
+  document.addEventListener("DOMContentLoaded", async () => {
+    const emailInput = document.getElementById("email-input");
+    const subscribeButton = document.getElementById("subscribe-button");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
+
+    // Function to handle email submission
+    const handleEmailSubmission = async () => {
+      const email = emailInput.value.trim();
+
+      // Validate email
+      if (!email || !email.includes("@")) {
+        errorMessage.textContent = "Please enter a valid email address.";
+        errorMessage.style.display = "block";
+        successMessage.style.display = "none";
+        return;
+      }
+
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+
+      subscribeButton.disabled = true;
+
+      const EmailSubmitted = await submitemail(email);
+
+      if (EmailSubmitted) {
+        successMessage.textContent = "You've Successfully Subscribed!";
+        successMessage.style.display = "block"; // Show the existing success message
+        emailInput.value = ""; // Clear the input field
+      } else {
+        errorMessage.textContent = "Failed to send email to Database. Please try again.";
+        errorMessage.style.display = "block";
+      }
+      subscribeButton.disabled = false; // Re-enable the button
+    };
+
+    // Subscription event listener for button click
+    subscribeButton.addEventListener("click", handleEmailSubmission);
+
+    // Event listener for "Enter" key press
+    emailInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        handleEmailSubmission(); // Call the same logic as the button click
+      }
+    });
+  });
+</script>
+
+
+
+
     
 <body>
 <br>
@@ -606,11 +782,60 @@
 <div class="container">
     <div class="box" onclick="openOverlay(1)"><br><img src="Blog_Image_1.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">The Government now use AI, when will you?<br>(21/01/25)</h3></div>
     <div class="box" onclick="openOverlay(2)"><br><img src="Blog_Image_2.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">Trump's using it, why aren't you?<br>(22/01/25)</h3></div>
-    <div class="box">Coming Soon!</div>
+    <div class="box" onclick="openOverlay(3)"><br><img src="Blog_Image_3.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">Banks thrive with AI, will you?<br>(23/01/25)</div>
     <div class="box">Coming Soon!</div>
     <div class="box">Coming Soon!</div>
     <div class="box">Coming Soon!</div>
 </div>
+    <style>
+    #email-input {
+            width: calc(100% - 120px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        #subscribe-button {
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #000000;
+            color: #EFFE8A;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #subscribe-button:hover {
+            background-color: #EFFE8A;
+            color: #000000;
+        }
+
+        #success-message {
+            margin-top: 10px;
+            color: #EFFE8A;
+            font-size: 14px;
+            display: none;
+        }
+
+        .error-message {
+            margin-top: 10px;
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+<section style="background-color:#080027;">
+<h2>Subscribe to Our Blogs To Stay Updated!</h2>
+<h4>This subscription is different to our Newsletter</h4>
+<div style="display: flex; gap: 10px;">
+<input type="email" id="email-input" placeholder="Enter your email" required />
+<button id="subscribe-button">Subscribe</button>
+</div>
+<p id="success-message">You've Successfully Subscribed!</p>
+<p id="error-message" class="error-message">Please enter a valid email address.</p>
+</section>
 <style>
 .text {
     color: #FFFFFF;
@@ -652,6 +877,9 @@
 </div>
 <div class="overlay" id="overlay-2">
 <button class="close-btn" onclick="closeOverlay()">×</button><span class="title">The $500 Billion Stargate: How the U.S. is Reshaping AI Infrastructure</span><br><span class="text">Artificial intelligence (AI) is rapidly becoming the backbone of modern economies, and the United States has taken a decisive step to lead the charge. In a groundbreaking announcement, the U.S. government, spearheaded by President Donald Trump, unveiled a $500 billion investment in AI infrastructure through the "<b>Stargate</b>" project. This ambitious initiative aims to transform the AI landscape, positioning the U.S. as a global leader in innovation and technology.<br><br><span class="sub-title">What is the Stargate Project?</span><br>The "<b>Stargate</b>" project is a bold initiative designed to revolutionize the United States' AI capabilities. It includes the establishment of a massive AI data center in Texas, a hub that will serve as the nerve center for advanced research, development, and deployment of AI technologies. The project has enlisted the support of major technology players such as <a href="https://openai.com/" class="external-link">OpenAI</a>, <a href="https://www.oracle.com/" class="external-link">Oracle</a>, and <a href="https://group.softbank/en" class="external-link">SoftBank</a>, combining expertise and resources to achieve its ambitious goals.<br><br><span class="sub-title">Key Objectives and Benefits</span><br>- <b>Massive Job Creation</b>:<br>The project is set to create over 100,000 jobs, revitalizing the local economy and offering opportunities in technology, construction, and management sectors.<br> - <b>Global Leadership in AI</b>:<br>With this investment, the U.S. aims to solidify its position as a global leader in AI, fostering innovation and maintaining a competitive edge over rival nations.<br>- <b>Economic Growth</b>:<br>By investing heavily in AI infrastructure, the government anticipates a significant boost to the economy, driving advancements in various industries such as healthcare, manufacturing, and finance.<br>- <b>Enhanced Security and Sovereignty</b>:<br>The project emphasizes creating secure, domestic AI systems, reducing reliance on foreign technology providers and bolstering national security.<br><br><span class="sub-title">What Does This Mean for Businesses?</span><br>For businesses, the "<b>Stargate</b>" project signals a paradigm shift. As AI infrastructure becomes more accessible, companies of all sizes will have the opportunity to leverage cutting-edge technology to enhance efficiency, innovation, and profitability. Key implications include:<br>- <b>Cost Reductions</b>: The centralization of AI resources will likely lower costs for businesses adopting AI, making it feasible for smaller enterprises to compete on a larger scale.<br>- <b>New Opportunities</b>: Industries such as data analytics, cloud computing, and machine learning are expected to see exponential growth, creating new avenues for innovation and investment.<br>- <b>Improved Collaboration</b>: With leading tech companies involved, businesses can expect streamlined integration and better support for their AI implementations.<br><br><span class="sub-title">What Can AssetFlow Automations Offer?</span><br>At AssetFlow Automations, we recognize that the future of business lies in embracing AI. While the "Stargate" project focuses on national infrastructure, we specialise in making AI accessible to businesses across the globe. Here's how we align with this vision:  - <b>Affordable AI Solutions</b>: Unlike costly competitors, our services range from £50 to £1000 for one-time setup costs, ensuring that businesses of all sizes can afford cutting-edge AI systems.<br>- <b>Transparent Management Costs</b>: Our monthly management fees start at £30, with the option to pay annually for added convenience.<br>- <b>Customised Implementations</b>: We tailor every AI solution to integrate seamlessly with your existing systems, ensuring maximum efficiency and minimal disruption.<br><br><span class="sub-title">Seize the Moment</span><br>The U.S. government’s investment in AI infrastructure is a wake-up call for businesses everywhere: the AI revolution is here, and it’s transforming industries at an unprecedented pace. Don’t wait for your competitors to outpace you—join the revolution now.<br><br>Partner with AssetFlow Automations to harness the power of AI and drive your business to new heights. Contact us today at <a href="https://www.assetflowautomations.com/" class="our-link">www.assetflowautomations.com</a> to explore how we can help you stay ahead of the curve.</span>
+</div>
+<div class="overlay" id="overlay-3">
+<button class="close-btn" onclick="closeOverlay()">×</button><span class="title">AI Revolution in Banking: How the UK is Leading the Charge</span><br><span class="text">Artificial intelligence is no longer just a buzzword; it’s the driving force behind innovation in countless industries. And among these, the UK banking sector is emerging as a pioneer. A recent survey by <a href="https://www.lloydsbank.com/" class="external-link">Lloyds Bank</a> reveals that AI adoption in financial institutions has doubled in just a year—from 32% in 2024 to an impressive 63% in 2025.<br><br>So, what’s behind this rapid growth, and what does it mean for businesses and consumers? Let’s dive in.<br><br><span class="sub-title">Why is AI Transforming Banking?</span><br>The financial services industry has always relied on data-driven insights to thrive. With AI, banks can now:<br>- <b>Improve Productivity</b>:<br>AI-powered tools automate mundane tasks like document processing, fraud detection, and customer onboarding. According to <a href="https://www.lloydsbank.com/" class="external-link">Lloyds Bank</a>, 32% of banks cited productivity gains as the primary benefit of AI adoption.<br>- <b>Gain Competitive Advantage</b>:<br>In a fiercely competitive market, being ahead in AI adoption can make all the difference. Around 22% of financial institutions believe AI gives them a strategic edge over rivals.<br>- <b>Enhance Customer Insights</b>:<br>AI enables banks to analyse massive amounts of data in real-time, offering personalised products and services. This has been a game-changer for 18% of the surveyed banks.<br><br><span class="sub-title">Challenges on the Horizon</span><br>Despite the surge in AI adoption, it’s clear that banks are only scratching the surface of its potential. A striking 69% of institutions believe they’ve yet to unlock the full value AI can bring to their operations. Barriers include:<br>- <b>High Initial Costs</b>: Implementing AI solutions can be expensive, deterring smaller institutions from diving in.<br>- <b>Regulatory Compliance</b>: With AI comes increased scrutiny from regulators, making it essential for banks to ensure transparency and ethical practices.<br>- <b>Skill Gaps</b>: Many organisations struggle to find skilled professionals capable of leveraging AI effectively.<br><br><span class="sub-title">Implications for Businesses Outside Banking</span><br>The UK banking sector’s success with AI should serve as a wake-up call for businesses across industries. The rapid doubling of AI adoption demonstrates its transformative potential. Here’s what this means for you:<br>- <b>Opportunities for Collaboration</b>: Banks increasingly partner with tech companies to implement AI solutions. This could be your chance to collaborate if you’re in the tech space.<br>- <b>Setting the Standard</b>: As financial institutions lead the way, other industries will soon follow, setting benchmarks for AI integration.<br><br><span class="sub-title">How AssetFlow Automations Can Help</span><br>At AssetFlow Automations, we believe AI isn’t just for banking giants; it’s for every business. Here’s how we make AI accessible:<br> - <b>Affordable Solutions</b>: Unlike competitors charging exorbitant monthly fees, we offer AI systems starting at just £50 (one-time setup) and £30/month for management.<br>- <b>Customised Implementations</b>: Our AI solutions are tailored to your business needs, whether you’re a retail store, a manufacturing firm, or a financial institution.<br>- <b>Streamlined Onboarding</b>: We handle the complexity so you can focus on reaping the rewards of AI.<br><br><span class="sub-title">Seize the Opportunity</span><br>The financial industry’s rapid embrace of AI is a testament to its power. As the banking sector becomes more efficient, competitive, and customer-focused, businesses everywhere must take note.<br><br>Don’t wait until your competitors have left you behind. The AI revolution is here, and it’s reshaping every industry it touches. Join the movement with <a href="https://www.assetflowautomations.com/" class="our-link">AssetFlow Automations</a>.<br><br>Get in touch with us today to start your AI journey!</span>
 </div>
 <br>
 <script>
