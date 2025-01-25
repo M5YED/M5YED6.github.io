@@ -5,6 +5,10 @@
       <lastmod>2024-12-18</lastmod>
    </sitemap>
    <sitemap>
+      <loc>https://www.assetflowautomations.com/use-cases/</loc>
+      <lastmod>2024-12-18</lastmod>
+   </sitemap>
+   <sitemap>
       <loc>https://pricing.assetflowautomations.com/</loc>
       <lastmod>2024-12-18</lastmod>
    </sitemap>
@@ -29,11 +33,19 @@
       <lastmod>2024-12-18</lastmod>
    </sitemap>
    <sitemap>
-      <loc>https://www.assetflowautomations.com/use-cases/</loc>
+      <loc>https://documentation.assetflowautomations.com/2.0/</loc>
       <lastmod>2024-12-18</lastmod>
    </sitemap>
    <sitemap>
       <loc>https://ratings.assetflowautomations.com/</loc>
+      <lastmod>2024-12-18</lastmod>
+   </sitemap>
+   <sitemap>
+      <loc>https://media.assetflowautomations.com/</loc>
+      <lastmod>2024-12-18</lastmod>
+   </sitemap>
+   <sitemap>
+      <loc>https://media.assetflowautomations.com/blogs/</loc>
       <lastmod>2024-12-18</lastmod>
    </sitemap>
 </sitemapindex>
