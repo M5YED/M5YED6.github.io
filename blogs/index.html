@@ -968,63 +968,82 @@ async function submitemail(email) {
 
     <!-- Voiceflow Web Chat Widget Script -->
     <script type="text/javascript">
-      (function(d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function() {
-          // Initialize the Voiceflow Web Chat widget
-          window.voiceflow.chat.load({
-            verify: { projectID: '6792db7d018b19e306765623' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production'
-          }).then(() => {
-            // Add event listener to the "Subscribe" button
-            document.getElementById('SubscribeButton').addEventListener('click', (event) => {
-              event.preventDefault(); // Prevent form submission until alert is shown
+  (function(d, t) {
+    const v = d.createElement(t);
+    const s = d.getElementsByTagName(t)[0];
+    
+    v.onload = async function() {
+      try {
+        // Initialize Voiceflow Web Chat widget
+        await window.voiceflow.chat.load({
+          verify: { projectID: '6792db7d018b19e306765623' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'development',
+          showInitialMessage: false,
+          showLauncher: false,
+        });
 
-              const email = document.querySelector('input[name="email"]').value;
-
-              if (email) {
-                // Submit the email to Airtable
-                submitsubscribeForm(event)
-
-                // Show the original alert after form submission
-                alert('Thank you for subscribing!');
-
-                // Open the chat widget after the alert is closed
-                window.voiceflow.chat.open();
-
-                // Send the 'NewSubscriber' event to Voiceflow
-                window.voiceflow.chat.interact({
-                  type: 'event',
-                  payload: {
-                    event: {
-                      name: 'NewSubscriber' // The event name defined in your Event CMS
-                    }
-                  }
-                });
-              } else {
-                // The browser will show the default validation alert if the field is empty
-                document.querySelector('input[name="email"]').reportValidity();
-              }
-            });
-          }).catch(error => {
-            console.error('Error loading the Voiceflow chat widget:', error);
-          });
+        // Remove launcher if injected
+        const removeLauncher = () => {
+          const launcher = document.querySelector('.vf-chat-launcher');
+          if (launcher) {
+            launcher.remove();
+            console.log('Launcher removed.');
+          }
         };
-        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-        v.type = "text/javascript";
-        s.parentNode.insertBefore(v, s);
-      })(document, 'script');
-    </script>
+        removeLauncher();
+
+        // Use MutationObserver instead of setInterval
+        const observer = new MutationObserver(removeLauncher);
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // Subscribe button logic
+        document.getElementById('SubscribeButton').addEventListener('click', async (event) => {
+          event.preventDefault();
+          const emailInput = document.querySelector('input[name="email"]');
+          const email = emailInput.value;
+
+          if (email) {
+            try {
+              // Submit email to Airtable
+              await submitToAirtable(event);
+              alert('Thank you for subscribing!');
+              window.voiceflow.chat.open();
+
+              // Send custom event to Voiceflow
+              window.voiceflow.chat.interact({
+                type: 'event',
+                payload: {
+                  event: { name: 'NewSubscriber' },
+                },
+              });
+            } catch (submissionError) {
+              console.error('Error during submission:', submissionError);
+            }
+          } else {
+            emailInput.reportValidity(); // Triggers browser's default validation
+          }
+        });
+      } catch (error) {
+        console.error('Error loading Voiceflow chat:', error);
+      }
+    };
+
+    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+    v.type = "text/javascript";
+    s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
 
     <!-- JavaScript for Airtable Integration -->
     <script>
-      function submitsubscribeForm(event) {
+      function submitToAirtable(event) {
         const email = document.querySelector('input[name="email"]').value;
 
         // Airtable API configuration
         const baseId = 'appHdf8GqdnnZ8eQE';
-        const tableName = 'Table%201';
+        const tableName = 'Newsletter';
         const airtableUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
         const apiKey = 'patb0pXMNIXvXABCA.8225b205c549ce52bb118a86e4df78675668274cff5e6f71d8db0280d854dcff'; 
 
