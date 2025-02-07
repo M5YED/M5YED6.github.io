@@ -785,6 +785,123 @@ async function submitemail(email) {
 <br>
 <h2 style="color: #080027;">Real-Time Information</h2>
 <h1 style="color: #080027;">To Keep You Up-To-Date</h1>
+<br>
+<section style="background-color: #054708;">
+<h3 style="color: #FFFFFF; text-align: left;">Top Highlights</h2>
+<br>
+<div class="slideshow-container">
+  <div class="slideshow">
+    <div id="highlight-1">
+    <center><h2 style="color: #A52A2A;">Google's AI for Military</h2></center>
+    <img src="Blog_Image_16.webp" alt="Blog 16" onclick="openOverlay(16)">
+    </div>
+      
+    <div id="highlight-2">
+    <center><h2 style="color: #A52A2A;">EU's AI Guidelines</h2></center>
+    <img src="Blog_Image_15.webp" alt="Blog 15" onclick="openOverlay(15)">
+    </div>
+      
+    <div id="highlight-3">
+    <center><h2 style="color: #A52A2A;">AI at Sea</h2></center>
+    <img src="Blog_Image_12.webp" alt="Blog 12" onclick="openOverlay(12)">
+    </div>
+      
+    <div id="highlight-4">
+    <center><h2 style="color: #A52A2A;">AI in Healthcare</h2></center>
+    <img src="Blog_Image_7.webp" alt="Blog 7" onclick="openOverlay(7)">
+    </div>
+      
+    <div id="highlight-5">
+    <center><h2 style="color: #A52A2A;">AI in Banks</h2></center>
+    <img src="Blog_Image_3.webp" alt="Blog 3" onclick="openOverlay(3)">
+    </div>
+  </div>
+  <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+  <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+<br>
+<h3 style="color: #FFFFFF;">Click to Read</h3>
+<script>
+  let currentIndex = 0; // Current slide index
+  const slides = document.querySelector('.slideshow');
+  const totalImages = document.querySelectorAll('.slideshow img').length;
+  let autoSlideInterval;
+
+  function updateSlide(index) {
+    const slideWidth = slides.offsetWidth / totalImages;
+    slides.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  function moveSlide(direction) {
+    clearInterval(autoSlideInterval); // Pause the auto-slide temporarily
+    currentIndex += direction;
+
+    // Wrap around the slides
+    if (currentIndex < 0) currentIndex = totalImages - 1;
+    if (currentIndex >= totalImages) currentIndex = 0;
+
+    updateSlide(currentIndex);
+
+    // Restart auto-sliding after a delay
+    setTimeout(startAutoSlide, 10000); // Activates if user presses "next" or "previous" buttons
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalImages; // Loop back to first slide
+      updateSlide(currentIndex);
+    }, 5000); // 5 seconds
+  }
+
+  // Start the slideshow automatically
+  startAutoSlide();
+</script>
+<style>
+.slideshow-container {
+        position: relative;
+        width: 100%; 
+        max-width: 800px; 
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .slideshow {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: calc(100% * 5); /* Update this to match the number of images */
+    }
+
+    .slideshow img {
+        width: 100%; 
+        max-width: 800px; 
+        flex-shrink: 0; 
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+</style>
+</section>
+<br>
+<br>
+
 <div class="container">
     <div class="box" onclick="openOverlay(17)"><br><img src="Blog_Image_17.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">KFC succeeded with AI integration, will you?<br>(06/02/25)</h3></div>
     <div class="box" onclick="openOverlay(16)"><br><img src="Blog_Image_16.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">Google's AI works with the military, does it work with you?<br>(05/02/25)</h3></div>
@@ -1022,7 +1139,7 @@ async function submitemail(email) {
       try {
         // Initialize Voiceflow Web Chat widget
         await window.voiceflow.chat.load({
-          verify: { projectID: '6792db7d018b19e306765623' },
+          verify: { projectID: '67a55aff7a9333c0984ea084' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'development',
           showInitialMessage: false,
