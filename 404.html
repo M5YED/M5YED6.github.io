@@ -698,7 +698,7 @@
 @media (max-width: 768px) {
     header {
         padding: 2px 15px;
-        height: auto;
+        max-height: 30vh;
         z-index: 10;
     }
 
@@ -1002,19 +1002,12 @@ window.onload = async () => {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: '6792db7d018b19e306765623' },
+          verify: { projectID: '6793b7b8350d655370728ba7' },
           url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          assistant: {
-            title: "Custom Assistant", // Optional: Add a custom title
-            description: "Here to assist you!", // Optional: Add a description
-            color: "#080027", // Override primary colour
-          }
+          versionID: 'production'
         });
-      };
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
-      v.type = "text/javascript"; 
-      s.parentNode.insertBefore(v, s);
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
 </script>
 </center></body>
