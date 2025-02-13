@@ -362,6 +362,47 @@
         max-height: 300px; /* Limit the height of the overlay */
     }
 
+    .slideshow-container {
+        position: relative;
+        width: 100%; 
+        max-width: 800px; 
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .slideshow {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: calc(100% * 5); /* Update this to match the number of images */
+    }
+
+    .slideshow img {
+        width: 100%; 
+        max-width: 800px; 
+        flex-shrink: 0; 
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+        
     /* Links inside the overlay */
     .menu-overlay a {
         text-decoration: none;
@@ -845,53 +886,12 @@ async function submitemail(email) {
   // Start the slideshow automatically
   startAutoSlide();
 </script>
-<style>
-.slideshow-container {
-        position: relative;
-        width: 100%; 
-        max-width: 800px; 
-        margin: auto;
-        overflow: hidden;
-    }
-
-    .slideshow {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        width: calc(100% * 5); /* Update this to match the number of images */
-    }
-
-    .slideshow img {
-        width: 100%; 
-        max-width: 800px; 
-        flex-shrink: 0; 
-    }
-
-    .prev, .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        z-index: 10;
-        border-radius: 50%;
-    }
-
-    .prev {
-        left: 10px;
-    }
-
-    .next {
-        right: 10px;
-    }
-</style>
 </section>
 <br>
 <br>
 
 <div class="container">
+    <div class="box" onclick="openOverlay(23)"><br><img src="Blog_Image_23.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">The Future of AI Is Here: How BYD Is Making Self-Driving Technology Mainstream<br>(12/02/25)</h3></div>
     <div class="box" onclick="openOverlay(22)"><br><img src="Blog_Image_22.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">The Invisible Revolution: How AI is Becoming Part of Everyday Life<br>(11/02/25)</h3></div>
     <div class="box" onclick="openOverlay(21)"><br><img src="Blog_Image_21.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">AI at a Crossroads: The Paris AI Summit and the Future of Equitable Innovation<br>(10/02/25)</h3></div>
     <div class="box" onclick="openOverlay(20)"><br><img src="Blog_Image_20.webp" alt="AI Blogs" style="width: 20vw; height: 20vh; border-radius: 20px; padding: 10px;"><h3 style="color: #FFFFFF;">China’s Race to AI Supremacy: How DeepSeek is Reshaping the Business Landscape<br>(09/02/25)</h3></div>
@@ -1074,6 +1074,9 @@ async function submitemail(email) {
 </div>
 <div class="overlay" id="overlay-22">
 <button class="close-btn" onclick="closeOverlay()">×</button><span class="title">The Invisible Revolution: How AI is Becoming Part of Everyday Life</span><br><span class="text">Imagine waking up to an alarm that adjusts itself based on your sleep cycle. You grab your phone, and before you've even had your coffee, it's already summarised the most important emails, planned your day, and suggested the best route to work based on live traffic updates.<br><br>This isn't the future—<b>it's happening now</b>.<br><br>Apple’s latest AI enhancements to iPhones are a perfect example of how artificial intelligence is seamlessly embedding itself into everyday life. With each update, AI is no longer just a futuristic concept reserved for tech giants; it's becoming the invisible force that powers convenience, productivity, and efficiency for everyday people.<br><br><span class="sub-title">Apple’s AI-Powered iPhone: A Glimpse Into the Future</span><br>Apple has always tried to be at the forefront of innovation, but their latest AI-powered features are taking integration to the next level. From advanced language processing to personalised automation, iPhones are no longer just smartphones—they are intelligent digital assistants that understand and adapt to users’ needs in real time.<br><br>Some key advancements include:<br>- <b>AI-Generated Summaries</b>: Emails, notifications, and messages are automatically condensed to save time.<br>- <b>Smarter Siri</b>: The virtual assistant is becoming more conversational and capable of executing complex commands.<br>- <b>Enhanced Personalisation</b>: AI now suggests apps, settings, and actions based on daily habits.<br>- <b>Photo and Video Intelligence</b>: AI enhances images and even generates edits automatically, turning every user into a professional content creator.<br><br>This shift isn't just about Apple. Across industries, AI is subtly weaving itself into our daily routines.<br><br><span class="sub-title">AI is No Longer Optional—It’s Unavoidable</span><br>From retail to banking, from healthcare to logistics, AI is becoming an essential part of businesses. Consumers are interacting with AI more than ever, often without realising it. Smart assistants, predictive shopping recommendations, fraud detection systems, and automated customer service agents are all part of this transformation.<br><br>The reality is simple: AI isn’t something people will have to ‘choose’ to use—it’s becoming the foundation of modern digital experiences. Businesses that fail to embrace AI risk falling behind, while those that adapt early will <b>lead their industries</b>.<br><br><span class="sub-title">Where AssetFlow Automations Fits In</span><br>At AssetFlow Automations, we understand that AI isn’t just for tech giants like Apple. Every business, regardless of size, should have access to affordable, powerful AI-driven automation. That’s why we offer customised solutions designed to help businesses <b>optimise workflows</b>, <b>improve efficiency</b>, and <b>stay ahead of the competition</b>—without the excessive costs many providers charge.<br><br>AI is not a trend. It’s a fundamental shift in how the world operates. The only question is: <b>Will your business be at the forefront</b> of this revolution, or <b>will it be left behind?</b><br><br>The <b>choice</b> is <b>yours</b>.<br><br>Want to integrate AI into your business? Contact <a href="https://www.assetflowautomations.com/" class="our-link">AssetFlow Automations</a> today and future-proof your success.</span>
+</div>
+<div class="overlay" id="overlay-23">
+<button class="close-btn" onclick="closeOverlay()">×</button><span class="title">The Future of AI Is Here: How BYD Is Making Self-Driving Technology Mainstream</span><br><span class="text">Artificial intelligence is no longer confined to high-tech research labs or exclusive enterprise applications. It's steadily embedding itself into the fabric of everyday life. The latest milestone? <a href="https://www.byd.com/uk" class="external-link">BYD</a>'s introduction of affordable self-driving technology, a move that signals a new era where AI-powered automation isn't just a luxury for the elite but a standard feature for the masses.<br><br><span class="sub-title">Democratising AI: BYD's Bold Move</span><br>For years, autonomous vehicle technology has been associated with high-end brands like Tesla, Mercedes-Benz, and Waymo, each offering self-driving capabilities at a premium price. BYD, the <b>world’s largest electric vehicle manufacturer</b>, is set to change that narrative. By integrating self-driving AI into its mass-market vehicles, BYD is making AI-assisted transportation accessible to everyday consumers.<br><br>The significance of this move cannot be overstated. This is not just about cars—it’s about how AI is becoming a natural part of daily life. Just as smartphones brought AI assistants into our pockets, BYD’s innovation could normalise AI-driven mobility for the <b>global population</b>.<br><br><span class="sub-title">AI and the Shift in Consumer Behaviour</span><br>The introduction of cost-effective self-driving technology will lead to a fundamental shift in how consumers perceive and interact with AI. The common perception of AI as an experimental or niche technology is rapidly fading. As more people experience AI-driven transportation firsthand, they will grow more accustomed to trusting AI for decision-making in their daily routines.<br><br>This shift in mindset extends beyond the automotive industry. Once AI-powered convenience becomes the norm in one area of life, it becomes easier for consumers to accept its integration into other areas—whether it’s automated financial services, AI-powered customer support, or smart business automation solutions like those offered by AssetFlow Automations.<br><br><span class="sub-title">What This Means for Businesses</span><br>AI adoption isn’t just happening in cars—it’s happening across industries. Businesses that fail to integrate AI into their operations risk falling behind as automation reshapes the competitive landscape. The lesson from BYD’s latest innovation is clear: AI is not just for the tech giants or early adopters anymore; it’s becoming an expectation.<br><br>At AssetFlow Automations, we specialise in helping businesses implement AI-driven automation solutions that enhance efficiency, reduce costs, and improve customer engagement. Unlike traditional automation providers that charge exorbitant subscription fees, we offer customised automation solutions with a one-time payment model ranging from £50 to £1000. Ongoing management costs start as low as £30 per month, ensuring affordability without compromising on quality.<br><br><span class="sub-title">AI is Becoming Inevitable—The Time to Act is Now</span><br>BYD’s latest move is just another reminder that AI is no longer a futuristic concept; it’s an evolving reality. Businesses and individuals alike must decide whether they want to be at the forefront of this transformation or struggle to catch up later.<br><br>The question isn’t whether AI will become a part of daily life—it already is. The real question is: Will your business be ahead of the curve, or will it be left behind?<br><br>At <a href="https://www.assetflowautomations.com/" class="our-link">AssetFlow Automations</a>, we’re here to ensure you stay ahead. Let’s talk about how AI can revolutionise your business today.</span>
 </div>
 <br>
 <script>
